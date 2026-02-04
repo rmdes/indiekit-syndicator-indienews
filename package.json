@@ -1,0 +1,35 @@
+{
+  "name": "@rmdes/indiekit-syndicator-indienews",
+  "version": "1.0.0",
+  "description": "IndieNews syndicator for Indiekit",
+  "keywords": [
+    "indiekit",
+    "indiekit-plugin",
+    "indieweb",
+    "syndication",
+    "indienews"
+  ],
+  "homepage": "https://news.indieweb.org/",
+  "author": {
+    "name": "Rick Mendes",
+    "url": "https://rmendes.net"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "type": "module",
+  "main": "index.js",
+  "files": [
+    "assets",
+    "lib",
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rmendes/indiekit-syndicator-indienews.git"
+  },
+  "dependencies": {
+    "@indiekit/error": "^1.0.0-beta.25"
+  }
+}
