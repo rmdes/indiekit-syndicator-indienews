@@ -1,6 +1,6 @@
 {
   "name": "@rmdes/indiekit-syndicator-indienews",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "IndieNews syndicator for Indiekit",
   "keywords": [
     "indiekit",
@@ -20,6 +20,9 @@
   },
   "type": "module",
   "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
   "files": [
     "assets",
     "lib",

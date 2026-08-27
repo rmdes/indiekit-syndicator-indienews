@@ -1,6 +1,7 @@
 import { IndiekitError } from "@indiekit/error";
 
 import { IndieNews } from "./lib/indienews.js";
+import { resolveLanguage } from "./lib/language.js";
 
 const LANGUAGE_NAMES = {
   en: "English",
@@ -65,13 +66,19 @@ export default class IndieNewsSyndicator {
 
   /**
    * Syndicate post to IndieNews
+   *
+   * The language comes from the requested target where one was given, rather
+   * than from this instance: Indiekit matches targets by URL origin, which
+   * every IndieNews language shares, so a request can arrive at the wrong
+   * instance. See `lib/language.js`.
    * @param {object} properties - JF2 post properties
    * @param {string} properties.url - Post URL to syndicate
    * @returns {Promise<string>} IndieNews permalink URL
    */
   async syndicate(properties) {
     try {
-      const lang = this.options.language || this.options.languages[0];
+      const configured = this.options.language || this.options.languages[0];
+      const lang = resolveLanguage(properties, configured);
       const indienews = new IndieNews(lang);
       return await indienews.submit(properties.url);
     } catch (error) {
